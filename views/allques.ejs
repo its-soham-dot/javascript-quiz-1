@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Questions</title>
+    <script>
+        var timeLeft = 30;
+        let button = document.getElementById("myBtn");
+        let elem = document.getElementById("timer"); 
+    
+        var timerId = setInterval(Countdown, 1000); 
+        function Countdown() { 
+    if (timeLeft == -1) {
+      clearTimeout(timerId);
+      console.log("times up!");
+    } else {
+      elem.innerHTML = timeLeft + 'seconds remaining';
+      timeLeft--;
+    }
+  }
+  console.log("yes");
+
+  
+button.addEventListener("click", ()=>{
+console.log("button clicked");
+});
+ 
+
+
+</script>
+</head>
+<body>
+
+    <h3>all Questions</h3>
+
+    <% let number = RandomQuestion(); %>
+
+    <h1> <%= AllQuestions[number].question %></h1>
+    <br>
+    <h1> <%= AllQuestions[number].options[0] %></h1>
+    <h1> <%= AllQuestions[number].options[1] %></h1>
+    <h1> <%= AllQuestions[number].options[2] %></h1>
+    <h1> <%= AllQuestions[number].options[3] %></h1>
+    <form action="/questions">
+        <button id="myBtn">submit</button>
+    </form>
+
+    <div id="timer">Hi</div>
+
+</body>
+</html>
